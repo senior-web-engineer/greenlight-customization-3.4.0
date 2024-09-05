@@ -32,13 +32,10 @@ services:
       - ./log:/usr/src/app/log
       - ./data/greenlight-v3/storage:/usr/src/app/storage
       - ./data/customization/application.bootstrap.scss:/usr/src/app/app/assets/stylesheets/application.bootstrap.scss
-      - ./data/customization/HomePage.jsx:/usr/src/app/app/javascript/components/home/HomePage.jsx
-      - ./data/customization/Logo.jsx:/usr/src/app/app/javascript/components/shared_components/Logo.jsx
-      - ./data/customization/NavbarSignedIn.jsx:/usr/src/app/app/javascript/components/home/NavbarSignedIn.jsx
-      - ./data/customization/useDeleteSession.jsx:/usr/src/app/app/javascript/hooks/mutations/sessions/useDeleteSession.jsx
-      - ./data/customization/App.jsx:/usr/src/app/app/javascript/App.jsx
-      - ./data/customization/application.html.erb:/usr/src/app/app/views/layouts/application.html.erb
-      - ./data/customization/user.rb:/usr/src/app/app/models/user.rb
+      - ./data/customization/background.png:/usr/src/app/app/assets/images/background.png
+      - ./data/customization/SigninForm.jsx:/usr/src/app/app/javascript/components/users/authentication/forms/SigninForm.jsx
+      - ./data/customization/SignIn.jsx:/usr/src/app/app/javascript/components/users/authentication/SignIn.jsx
+      - ./data/customization/env_controller.rb:/usr/src/app/app/controllers/api/v1/env_controller.rb
     depends_on:
       - postgres
       - redis
