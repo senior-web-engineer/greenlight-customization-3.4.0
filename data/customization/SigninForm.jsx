@@ -16,7 +16,7 @@
 
 /* eslint-disable react/jsx-props-no-spreading */
 
-import React, { useRef, useCallback } from 'react';
+import React, { useRef, useCallback, useState } from 'react';
 import {
   Button, Col, Row, Stack,
 } from 'react-bootstrap';
@@ -30,9 +30,11 @@ import useSignInForm from '../../../../hooks/forms/users/authentication/useSignI
 import HCaptcha from '../../../shared_components/utilities/HCaptcha';
 import FormCheckBox from '../../../shared_components/forms/controls/FormCheckBox';
 import useEnv from '../../../../hooks/queries/env/useEnv';
+import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 
 export default function SigninForm() {
   const { t } = useTranslation();
+  const [showPassword, setShowPassword] = useState(false);
   const { methods, fields } = useSignInForm();
   const createSessionAPI = useCreateSession();
   const captchaRef = useRef(null);
@@ -45,23 +47,37 @@ export default function SigninForm() {
     return createSessionAPI.mutate({ session, token });
   }, [captchaRef.current, createSessionAPI.mutate]);
 
+  const handleEyeIcon = () => {
+    setShowPassword(!showPassword);
+  }
+
   return (
     <Form methods={methods} onSubmit={handleSubmit}>
-      <FormControl field={fields.email} noLabel={true} className="custom-input" type="email" autoFocus />
-      <FormControl field={fields.password} noLabel={true} className="custom-input" type="password" />
+      <Row className='px-3'>
+        <Col className='px-0' sm={12}>
+          <FormControl field={fields.email} noLabel={true} className="custom-input" type="email" autoFocus />
+        </Col>
+      </Row>
+      <Row className='px-3'>
+        <Col className='px-0' sm={10}>
+         <FormControl field={fields.password} noLabel={true} className="custom-input custom-password" type={showPassword?"text":"password"} />
+        </Col>
+        <Col className='px-0' sm={2}>
+          <Button variant="icon" className="custom-input custom-group-addon" onClick={handleEyeIcon}>
+            {showPassword ? <EyeIcon className="hi-s" />:
+            <EyeSlashIcon className="hi-s" />}
+          </Button>
+        </Col>
+      </Row>
       <Row className='text-center mt-5 mb-4'>
-        {/* <Col> */}
-          <FormCheckBox id={fields.extend_session.hookForm.id} field={fields.extend_session} />
-        {/* </Col> */}
-        </Row>
-        <Row className='text-center'>
-        {/* <Col> */}
+        <FormCheckBox id={fields.extend_session.hookForm.id} field={fields.extend_session} />
+      </Row>
+      <Row className='text-center'>
           {
             env?.SMTP_ENABLED && (
               <Link to="/forget_password" className="text-link float-end small mb-3"> {t('authentication.forgot_password')} </Link>
             )
           }
-        {/* </Col> */}
       </Row>
       <HCaptcha ref={captchaRef} />
       <Stack className="mt-1" gap={1}>

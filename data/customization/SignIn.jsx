@@ -54,7 +54,7 @@ export default function SignIn() {
       <Card className="col-xl-5 col-lg-6 col-md-8 col-10 custom-signin">
         {/* <Card.Title className="text-center pb-2"> { t('authentication.sign_in') } </Card.Title> */}
         <div className="text-center pb-4">
-          <Logo />
+          <Logo className="custom-logo"/>
         </div>
         <SigninForm />
         { registrationMethod !== 'invite' && (

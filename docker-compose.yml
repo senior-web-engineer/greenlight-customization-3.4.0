@@ -35,6 +35,7 @@ services:
       - ./data/customization/background.png:/usr/src/app/app/assets/images/background.png
       - ./data/customization/SigninForm.jsx:/usr/src/app/app/javascript/components/users/authentication/forms/SigninForm.jsx
       - ./data/customization/SignIn.jsx:/usr/src/app/app/javascript/components/users/authentication/SignIn.jsx
+      - ./data/customization/Logo.jsx:/usr/src/app/app/javascript/components/shared_components/Logo.jsx
       - ./data/customization/env_controller.rb:/usr/src/app/app/controllers/api/v1/env_controller.rb
     depends_on:
       - postgres
