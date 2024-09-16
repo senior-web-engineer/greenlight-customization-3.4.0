@@ -54,15 +54,15 @@ export default function SigninForm() {
   return (
     <Form methods={methods} onSubmit={handleSubmit}>
       <Row className='px-3'>
-        <Col className='px-0' sm={12}>
+        <Col className='px-0 col-12'>
           <FormControl field={fields.email} noLabel={true} className="custom-input" type="email" autoFocus />
         </Col>
       </Row>
       <Row className='px-3'>
-        <Col className='px-0' sm={10}>
+        <Col className='px-0'>
          <FormControl field={fields.password} noLabel={true} className="custom-input custom-password" type={showPassword?"text":"password"} />
         </Col>
-        <Col className='px-0' sm={2}>
+        <Col className='px-0 col-2 min-width-65'>
           <Button variant="icon" className="custom-input custom-group-addon" onClick={handleEyeIcon}>
             {showPassword ? <EyeIcon className="hi-s" />:
             <EyeSlashIcon className="hi-s" />}

@@ -834,7 +834,7 @@ input[type="range"]:focus::-moz-range-thumb {
 .custom-input {
   background: #f1f3f4 0% 0% no-repeat padding-box;
   box-shadow: 0px 0px 30px #00000002;
-  // border: 1px solid var(--borderColor);
+  border: 0px;
   border-radius: 34px;
   margin-bottom: 20px;
   margin-top: 20px;
@@ -848,7 +848,7 @@ input[type="range"]:focus::-moz-range-thumb {
 }
 
 .custom-group-addon {
-  border: var(--bs-border-width) solid var(--bs-border-color);
+  border: 0px solid var(--bs-border-color);
   border-left: none;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -879,4 +879,18 @@ input[type="range"]:focus::-moz-range-thumb {
   margin-right: 15px;
   margin-top: -5px;
   float: none;
+}
+
+.min-width-65 {
+  min-width: 65px;
+}
+
+@media only screen and (max-width: 800px) {
+  .custom-signin {
+      width: 90vw;
+  }
+
+  .logo-wrapper.custom-logo {
+    width: 200px;
+  }
 }
