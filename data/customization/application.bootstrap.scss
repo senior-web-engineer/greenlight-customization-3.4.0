@@ -803,14 +803,6 @@ input[type="range"]:focus::-moz-range-thumb {
   visibility: hidden;
 }
 
-.logo.custom-logo {
-  max-width: 350px;
-}
-
-.logo-wrapper.custom-logo {
-  width: 350px;
-}
-
 .custom-bg {
   // background-image: url("/app/assets/images/background.png");
 	background-color: var(--brand-color);
@@ -892,5 +884,11 @@ input[type="range"]:focus::-moz-range-thumb {
 
   .logo-wrapper.custom-logo {
     width: 200px;
+    height: 100px;
+  }
+
+  .logo {
+    max-width: 200px;
+    max-height: 100px;
   }
 }
