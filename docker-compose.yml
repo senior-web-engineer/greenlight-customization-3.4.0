@@ -37,6 +37,9 @@ services:
       - ./data/customization/SignIn.jsx:/usr/src/app/app/javascript/components/users/authentication/SignIn.jsx
       - ./data/customization/Logo.jsx:/usr/src/app/app/javascript/components/shared_components/Logo.jsx
       - ./data/customization/env_controller.rb:/usr/src/app/app/controllers/api/v1/env_controller.rb
+      - ./data/customization/fonts.scss:/usr/src/app/app/assets/stylesheets/fonts.scss
+      - ./data/customization/variables.scss:/usr/src/app/app/assets/stylesheets/variables.scss
+      - ./data/customization/EuclidSquare-Regular.ttf:/usr/src/app/app/assets/fonts/EuclidSquare-Regular.ttf
     depends_on:
       - postgres
       - redis
